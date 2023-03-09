@@ -69,7 +69,7 @@ qa=ChatVectorDBChain.from_llm(llm=Cohere(model="command-xlarge-nightly", cohere_
 
 # From here down is all the StreamLit UI.
 st.set_page_config(page_title="Chatbot", page_icon=":shark:")
-st.header("Chat with WCRs")
+st.header("Reservoir Assistant")
 expander = st.expander("Know about Me ")
 
 expander.write("""
@@ -86,7 +86,7 @@ if "past" not in st.session_state:
 placeholder = st.empty()
 def get_text():
     
-    input_text = placeholder.text_input("Enter some text 👇", "", key="input")
+    input_text = placeholder.text_input("Enter what you want to know 👇", "", key="input")
     return input_text
 
 
