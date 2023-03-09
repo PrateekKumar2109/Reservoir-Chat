@@ -62,7 +62,7 @@ docsearch = load_vectorstore()
 #                              chain_type="stuff", vectorstore=docsearch, return_source_documents=False)
 
 qa=ChatVectorDBChain.from_llm(llm=Cohere(model="command-xlarge-nightly", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7),
-                              qa_prompt=QA_PROMPT,vectorstore=docsearch,verbose=True,streaming=True
+                              qa_prompt=QA_PROMPT,vectorstore=docsearch,return_source_documents=True,verbose=True,streaming=True
         #condense_question_prompt=CONDENSE_QUESTION_PROMPT
                              )
 #chain = load_chain(vectorstore,QA_PROMPT,CONDENSE_QUESTION_PROMPT)
