@@ -112,4 +112,4 @@ if st.session_state["generated"]:
         message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
 
         message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state["generated"][i+1], key=str(i+1))
+        #message(st.session_state["generated"][i+1], key=str(i+1))
