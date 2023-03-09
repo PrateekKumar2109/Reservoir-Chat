@@ -104,7 +104,7 @@ if st.button("Submit Your Query"):
     
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output["answer"])
-    st.session_state.generated.append(output[""source_documents""])
+    st.session_state.generated.append(output["source_documents"])
 
 if st.session_state["generated"]:
 
