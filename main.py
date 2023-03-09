@@ -103,9 +103,9 @@ if st.button("Submit Your Query"):
     #output = qa.run(user_input)
     
     st.session_state.past.append(user_input)
-    st.session_state.generated.append(output["source_documents"][0])
+    #st.session_state.generated.append(output["source_documents"][0])
     #st.session_state.generated.append([output["answer"],output["source_documents"]])
-    #st.session_state.generated.append(output["source_documents"])
+    st.session_state.generated.append(output["answer"])
 
 if st.session_state["generated"]:
 
