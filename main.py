@@ -103,13 +103,14 @@ if st.button("Submit Your Query"):
     #output = qa.run(user_input)
     
     st.session_state.past.append(user_input)
-    st.session_state.generated.append([output["answer"],output["source_documents"]])
+    st.session_state.generated.append(output["source_documents"])
+    #st.session_state.generated.append([output["answer"],output["source_documents"]])
     #st.session_state.generated.append(output["source_documents"])
 
 if st.session_state["generated"]:
 
     for i in range(len(st.session_state["generated"]) - 1, -1, -1):
-        message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
+        message(st.session_state["past"][i], is_user=True,avatar_style="adventurer",seed='123', key=str(i) + "_user")
 
         message(st.session_state["generated"][i], key=str(i))
         #message(st.session_state["generated"][i+1], key=str(i+1))
