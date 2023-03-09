@@ -48,7 +48,7 @@ def load_vectorstore():
            
     embeddings = CohereEmbeddings(cohere_api_key= "vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg")
        
-    return FAISS.load_local('res_manang_embeddings', embeddings)
+    return FAISS.load_local('resr_manang_embeddings', embeddings)
 
    
 
