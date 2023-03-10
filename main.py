@@ -73,7 +73,7 @@ docsearch = load_vectorstore()
 
 
 qa=VectorDBQA.from_chain_type(llm=Cohere(model="command-xlarge-nightly", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",
-                                         temperature=0.7,truncate: "END"),
+                                         temperature=0.7,truncate= "END"),
                               chain_type="map_reduce", vectorstore=docsearch, return_source_documents=False)
 
 #qa=ChatVectorDBChain.from_llm(llm=Cohere(model="command-xlarge-nightly", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7),
