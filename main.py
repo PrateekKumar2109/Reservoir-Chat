@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_chat import message
+import transformers
 
 from langchain.prompts.prompt import PromptTemplate
 from langchain.text_splitter import RecursiveCharacterTextSplitter
