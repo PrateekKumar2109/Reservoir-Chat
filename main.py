@@ -71,13 +71,13 @@ docsearch = load_vectorstore()
 
 
 
-#qa=VectorDBQA.from_chain_type(llm=Cohere(model="command-xlarge-nightly", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0),
-#                              chain_type="stuff", vectorstore=docsearch, return_source_documents=False)
+qa=VectorDBQA.from_chain_type(llm=Cohere(model="command-xlarge-nightly", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0),
+                              chain_type="map_reduce",prompt=QA_prompt, vectorstore=docsearch, return_source_documents=False)
 
-qa=ChatVectorDBChain.from_llm(llm=Cohere(model="command-xlarge-nightly", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7),
-                              chain_type="map_reduce",qa_prompt=QA_PROMPT,vectorstore=docsearch,return_source_documents=False,verbose=True,streaming=True
+#qa=ChatVectorDBChain.from_llm(llm=Cohere(model="command-xlarge-nightly", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7),
+#                              chain_type="map_reduce",qa_prompt=QA_PROMPT,vectorstore=docsearch,return_source_documents=False,verbose=True,streaming=True
         #condense_question_prompt=CONDENSE_QUESTION_PROMPT
-                             )
+#                             )
 #chain = load_chain(vectorstore,QA_PROMPT,CONDENSE_QUESTION_PROMPT)
 
 # From here down is all the StreamLit UI.
@@ -112,13 +112,14 @@ if st.button("Submit Your Query"):
     print(len(docs))
 #if user_input:
     chat_history = []
-    output = qa({"question": user_input, "chat_history": chat_history})
-    #output = qa.run(user_input)
+    #output = qa({"question": user_input, "chat_history": chat_history})
+    output = qa.run(user_input)
     
     st.session_state.past.append(user_input)
     #st.session_state.generated.append(output["source_documents"][0])
     #st.session_state.generated.append([output["answer"],output["source_documents"]])
-    st.session_state.generated.append(output["answer"])
+    #st.session_state.generated.append(output["answer"])
+    st.session_state.generated.append(output)
 
 if st.session_state["generated"]:
 
