@@ -69,7 +69,7 @@ qa=ChatVectorDBChain.from_llm(llm=Cohere(model="command-xlarge-nightly", cohere_
 
 # From here down is all the StreamLit UI.
 st.set_page_config(page_title="Chatbot", page_icon=":shark:")
-st.header("Reservoir Assistant")
+st.header("Reservoir Management Assistant")
 expander = st.expander("Know about Me ")
 
 expander.write("""
