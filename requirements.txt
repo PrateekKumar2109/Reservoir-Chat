@@ -6,3 +6,4 @@ cohere
 unstructured
 faiss-cpu
 bs4
+transformers
