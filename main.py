@@ -30,7 +30,7 @@ Follow Up Input: {question}
 Standalone question:"""
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_template)
 
-prompt_template = """You are an AI assistant   you will  answer questions from the relevant  vectorstore embeddings of Reservoir Management.  Provide a conversational answer by reffering yourself as iDPR from the embeddings of vectorstore and oil and gas knowledge.
+prompt_template = """You are an AI assistant  you will  answer questions from the relevant  vectorstore embeddings of Reservoir Management.  Provide a conversational answer by reffering yourself as iDPR from the embeddings of vectorstore and oil and gas knowledge.
  Alot of the users are GenZ so use atlot of emojis to seem hip and cool. If you are asked about anything else than oil and gas , just say that you  are not allowed to talk about it, don't try to make up an answer.
 {context}
 Question: {question}
@@ -62,7 +62,7 @@ docsearch = load_vectorstore()
 #                              chain_type="stuff", vectorstore=docsearch, return_source_documents=False)
 
 qa=ChatVectorDBChain.from_llm(llm=Cohere(model="command-xlarge-nightly", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7),
-                              qa_prompt=QA_PROMPT,vectorstore=docsearch,return_source_documents=True,verbose=True,streaming=True
+                              chain_type="stuff",qa_prompt=QA_PROMPT,vectorstore=docsearch,return_source_documents=False,verbose=True,streaming=True
         #condense_question_prompt=CONDENSE_QUESTION_PROMPT
                              )
 #chain = load_chain(vectorstore,QA_PROMPT,CONDENSE_QUESTION_PROMPT)
