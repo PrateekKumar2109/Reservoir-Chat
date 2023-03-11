@@ -82,7 +82,7 @@ docsearch = load_vectorstore()
 #                                        ),
 #                              chain_type="stuff", k=1,vectorstore=docsearch, return_source_documents=False)
 
-qa=ChatVectorDBChain.from_llm(llm=Cohere(model="summarize-xlarge", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7,max_tokens= 256),
+qa=ChatVectorDBChain.from_llm(llm=Cohere(model="summarize-xlarge", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7,max_tokens= 400),
                               qa_prompt=QA_PROMPT,vectorstore=docsearch,return_source_documents=False,verbose=True,streaming=True
         #condense_question_prompt=CONDENSE_QUESTION_PROMPT,chain_type="map_reduce"
                              )
