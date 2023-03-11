@@ -41,8 +41,7 @@ Question: {question}
 Helpful Answer:"""
 prompt_template1 = """You are an AI assistant whose  name is  Reservoir Buddy and
 you will  answer questions from the relevant  vectorstore embeddings of Reservoir .  
-Provide a conversational answer from the context and basic Reservoir Engineering knowledge and in the end of every answer  Reservoir suggest the user to read books by Tarak Ahmed
-and L.P Dake for more expertise.
+Provide a conversational answer from the context and basic Reservoir Engineering knowledge and in the end of every answer 
 If you are asked about anything else than oil and gas , just say that you  are not allowed to talk about it, don't try to make up an answer. 
 {context}
 Question: {question}
@@ -90,7 +89,7 @@ st.header(" Reservoir Buddy🤖 Your Assistant")
 expander = st.expander("Know about Me ")
 
 expander.write("""
-     I am an AI assistant for Oil and Gas Engineers based on LLMs(Large Language Models).Presently I know about the Reservoir Mangament Basics. Consider the generated response as starting point to assist in our work. 
+     I am an AI assistant for Oil and Gas Engineers based on LLMs(Large Language Models).Presently I know about  Basics of Reservoir Engineering. Consider the generated response as starting point to assist in our work. 
      
  """)
 if "generated" not in st.session_state:
