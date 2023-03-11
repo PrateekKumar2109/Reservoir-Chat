@@ -94,8 +94,17 @@ qa=ChatVectorDBChain.from_llm(llm=Cohere(model="summarize-xlarge", cohere_api_ke
 st.header(" Reservoir Buddy🤖 Your Assistant")
 st.sidebar.header('Sources and Citations')
 
-st.sidebar.text('Reservoir Buddy  has been using open source  Reservoir Engineering Materials\n
-                such as : \n https://www.wikipedia.org/, \nhttps://petrowiki.spe.org/PetroWiki, \nhttps://www.oil-gasportal.com/.')
+st.sidebar.text('Reservoir Buddy  has been using open source  Reservoir Engineering Materials for educational purposes only.\nIts primary sources are\n
+Reservoir Engineering material prepared for GATE by courtsey of Mr. Akshay Shekhawat\n
+Websites such as Wikipedia, PetroWiki,Oil and gas\n
+Reservoir Engineering You Tube Videos\n')
+st.sidebar.header('Refernces')
+st.sidebar.write('Check Out References for more detailed info:\n  [Wikipedia](https://www.wikipedia.org/)\n [PetroWiki](https://petrowiki.spe.org/PetroWiki)\n [Oil and Gas](https://www.oil-gasportal.com/)")
+st.sidebar.write("Hey there! Just a quick note to let you know that the information provided by this chatbot is for general informational purposes only.\n
+While we aim to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the chatbot or the information, products, services, or related graphics contained in the chatbot for any purpose.So, please take the results with a grain of salt and don't hesitate to double-check the information if you're not sure. We're here to help you, but we're not perfect. 😊")
+import streamlit as st 
+
+
 expander = st.expander("Know about Me ")
 
 expander.write("""
