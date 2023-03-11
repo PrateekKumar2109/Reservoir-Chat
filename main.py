@@ -88,11 +88,6 @@ qa=ChatVectorDBChain.from_llm(llm=Cohere(model="summarize-xlarge", cohere_api_ke
 #chain = load_chain(vectorstore,QA_PROMPT,CONDENSE_QUESTION_PROMPT)
 
 # From here down is all the StreamLit UI.
-st.set_page_config(
-     page_title='Streamlit cheat sheet',
-     layout="wide",
-     initial_sidebar_state="expanded",
-)
 
 #st.set_page_config(page_title="Chatbot", page_icon=":shark:")
 st.header(" Reservoir Buddy🤖 Your Assistant")
