@@ -97,7 +97,7 @@ st.sidebar.header('Sources and Citations')
 st.sidebar.write("Reservoir Buddy  has been using open source  Reservoir Engineering Materials for educational purposes only.\nIts primary sources are\nReservoir Engineering material prepared for GATE by courtsey of Mr. Akshay Shekhawat\nWebsites such as Wikipedia, PetroWiki,Oil and gas\nReservoir Engineering You Tube Videos\n")
 st.sidebar.header('Refernces')
 st.sidebar.write("Check Out References for more detailed info:\n  [Wikipedia](https://www.wikipedia.org/)\n [PetroWiki](https://petrowiki.spe.org/PetroWiki)\n [Oil and Gas](https://www.oil-gasportal.com/)")
-st.sidebar.write("Hey there! Just a quick note to let you know that the information provided by this chatbot is for general informational purposes only.\nWhile we aim to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the chatbot or the information, products, services, or related graphics contained in the chatbot for any purpose.So, please take the results with a grain of salt and don't hesitate to double-check the information if you're not sure. We're here to help you, but we're not perfect. 😊")
+st.sidebar.write("Hey there! Just a quick note to let you know that the information provided by this chatbot is for general informational purposes only.\n.So, please take the results with a grain of salt and don't hesitate to double-check the information if you're not sure. We're here to help you, but we're not perfect. 😊")
 import streamlit as st 
 
 
