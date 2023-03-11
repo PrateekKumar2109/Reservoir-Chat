@@ -20,8 +20,9 @@ from langchain.prompts.prompt import PromptTemplate
 
 st.set_page_config(
      page_title='Reservoir Buddy 🤖',
-     layout="wide",
-     #initial_sidebar_state="expanded",
+     
+     initial_sidebar_state="expanded"
+     #layout="wide",
 )
 # Split text
 text_splitter = RecursiveCharacterTextSplitter(chunk_size = 500,
@@ -91,6 +92,10 @@ qa=ChatVectorDBChain.from_llm(llm=Cohere(model="summarize-xlarge", cohere_api_ke
 
 #st.set_page_config(page_title="Chatbot", page_icon=":shark:")
 st.header(" Reservoir Buddy🤖 Your Assistant")
+st.sidebar.header('Sources and Citations')
+
+st.sidebar.text('Reservoir Buddy  has been using open source  Reservoir Engineering Materials\n
+                such as : \n https://www.wikipedia.org/, \nhttps://petrowiki.spe.org/PetroWiki, \nhttps://www.oil-gasportal.com/.')
 expander = st.expander("Know about Me ")
 
 expander.write("""
