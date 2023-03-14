@@ -19,7 +19,7 @@ from langchain import OpenAI, VectorDBQA
 from langchain.prompts.prompt import PromptTemplate
 
 st.set_page_config(
-     page_title='Reservoir Buddy 🤖',
+     page_title='Oil Buddy 🤖',
      
      initial_sidebar_state="expanded"
      #layout="wide",
@@ -65,7 +65,7 @@ def load_vectorstore():
            
     embeddings = CohereEmbeddings(cohere_api_key= "vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg")
        
-    return FAISS.load_local('reservoir_embeddings', embeddings)
+    return FAISS.load_local('tot_embeddings', embeddings)
     #return FAISS.load_local('resr_manang_embeddings', embeddings)
 
    
@@ -91,7 +91,7 @@ qa=ChatVectorDBChain.from_llm(llm=Cohere(model="summarize-xlarge", cohere_api_ke
 # From here down is all the StreamLit UI.
 
 #st.set_page_config(page_title="Chatbot", page_icon=":shark:")
-st.header("Reservoir Buddy🤖 Your Assistant ",)
+st.header("Oil Buddy🤖 Your Assistant ",)
 st.sidebar.header('Sources and Citations')
 
 st.sidebar.write("Reservoir Buddy  has been using open source  Reservoir Engineering Materials for educational purposes only.\nIts primary sources are\nReservoir Engineering material prepared for GATE by courtsey of Mr. Akshay Shekhawat, as well as reputable websites such as Wikipedia, PetroWiki and  You Tube Videos related to Reservoir Engineering\n")
@@ -105,7 +105,7 @@ import streamlit as st
 expander = st.expander("Know about Me")
 
 expander.write("""
-     :black[I am an AI assistant for Oil and Gas Engineers based on LLMs(Large Language Models).Presently I know about  Basics of Reservoir Engineering. Consider the generated response as starting point to assist in our work.] 
+     :black[I am an AI assistant for Oil and Gas Engineers based on LLMs(Large Language Models).Presently I know about  Basics of Reservoir and Production Engineering. Consider the generated response as starting point to assist in our work.] 
      
  """)
 if "generated" not in st.session_state:
