@@ -18,7 +18,12 @@ import pickle
 from langchain import OpenAI, VectorDBQA
 from langchain.prompts.prompt import PromptTemplate
 
-
+st.set_page_config(
+     page_title='Reservoir Buddy 🤖',
+     
+     initial_sidebar_state="expanded"
+     #layout="wide",
+)
 # Split text
 text_splitter = RecursiveCharacterTextSplitter(chunk_size = 500,
     chunk_overlap  = 0)
@@ -41,8 +46,7 @@ Question: {question}
 Helpful Answer:"""
 prompt_template1 = """You are an AI assistant whose  name is  Reservoir Buddy and
 you will  answer questions from the relevant  vectorstore embeddings of Reservoir .  
-Provide a conversational answer from the context and basic Reservoir Engineering knowledge and in the end of every answer  Reservoir suggest the user to read books by Tarak Ahmed
-and L.P Dake for more expertise.
+Provide a conversational answer from the context and basic Reservoir Engineering knowledge and in the end of every answer 
 If you are asked about anything else than oil and gas , just say that you  are not allowed to talk about it, don't try to make up an answer. 
 {context}
 Question: {question}
@@ -78,19 +82,30 @@ docsearch = load_vectorstore()
 #                                        ),
 #                              chain_type="stuff", k=1,vectorstore=docsearch, return_source_documents=False)
 
-qa=ChatVectorDBChain.from_llm(llm=Cohere(model="summarize-xlarge", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7),
-                              qa_prompt=QA_PROMPT,vectorstore=docsearch,return_source_documents=False,verbose=True,streaming=True
+qa=ChatVectorDBChain.from_llm(llm=Cohere(model="summarize-xlarge", cohere_api_key="vGCEakgncpouo9Nz0rsJ0Bq7XRvwNgTCZMKSohlg",temperature=0.7,max_tokens= 400),
+                              qa_prompt=QA_PROMPT,k=6,vectorstore=docsearch,return_source_documents=False,verbose=True,streaming=True
         #condense_question_prompt=CONDENSE_QUESTION_PROMPT,chain_type="map_reduce"
                              )
 #chain = load_chain(vectorstore,QA_PROMPT,CONDENSE_QUESTION_PROMPT)
 
 # From here down is all the StreamLit UI.
-st.set_page_config(page_title="Chatbot", page_icon=":shark:")
-st.header(" Reservoir Buddy🤖 Your Assistant")
-expander = st.expander("Know about Me ")
+
+#st.set_page_config(page_title="Chatbot", page_icon=":shark:")
+st.header("Reservoir Buddy🤖 Your Assistant ",)
+st.sidebar.header('Sources and Citations')
+
+st.sidebar.write("Reservoir Buddy  has been using open source  Reservoir Engineering Materials for educational purposes only.\nIts primary sources are\nReservoir Engineering material prepared for GATE by courtsey of Mr. Akshay Shekhawat, as well as reputable websites such as Wikipedia, PetroWiki and  You Tube Videos related to Reservoir Engineering\n")
+st.sidebar.header('References')
+st.sidebar.write("Check Out References for more detailed info ℹ️ :\n  [Wikipedia](https://www.wikipedia.org/)\n [PetroWiki](https://petrowiki.spe.org/PetroWiki)\n [Oil and Gas](https://www.oil-gasportal.com/)")
+st.sidebar.header('A Friendly Reminder')
+st.sidebar.write("Hey there! Just a quick note to let you know that the information provided by this chatbot is for general informational purposes only.\n.So, please take the results with a grain of salt and don't hesitate to double-check the information if you're not sure. We're here to help you, but we're not perfect. 😊")
+import streamlit as st 
+
+
+expander = st.expander("Know about Me")
 
 expander.write("""
-     I am an AI assistant for Oil and Gas Engineers based on LLMs(Large Language Models).Presently I know about the Reservoir Mangament Basics. Consider the generated response as starting point to assist in our work. 
+     :black[I am an AI assistant for Oil and Gas Engineers based on LLMs(Large Language Models).Presently I know about  Basics of Reservoir Engineering. Consider the generated response as starting point to assist in our work.] 
      
  """)
 if "generated" not in st.session_state:
